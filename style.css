@@ -3,6 +3,9 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: rgb(75,150,125);
+
+/* Calculator Container */
+
 }
 .mainContainer {
     width: 60vw;
@@ -13,6 +16,8 @@ body {
     flex-flow: column wrap;
     align-items: center;
 }
+
+/* Answer Output Section of Calculator */
 
 .output {
     width: 80%;
@@ -29,7 +34,15 @@ body {
     height: 60%;
     border: 2px solid black;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.answer {
+    font-size: 3.5vw;
+}
+/* Operations Section of Calculator */
 
 .operators {
     display: flex;
@@ -45,6 +58,8 @@ body {
     font-size: 2vw;
     font-weight: bolder;
 }
+
+/* Number Section of Calculator */
 
 #numpad {
     width: 80%;
