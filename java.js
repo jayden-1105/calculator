@@ -40,16 +40,18 @@ btnZero.onclick = (e) => createNumberString(e);
 btnClr.onclick = (e) => clear();
 
 
-let currentNumber = "";
-let firstNumber = "";
-let secondNumber = "";
-let answer = "";
-let currentOperation = "";
+currentNumber = "";
+firstNumber = "";
+secondNumber = "";
+answer = "";
+currentOperation = "";
+newAnswer = 0;
 
 
 // Takes input from buttons pressed and concats a string together to make a numbe.
 function createNumberString(e) {
     currentNumber = currentNumber.concat(e.target.value);
+    displayCurrentNumber(currentNumber);
 }
 
 // Takes the string created in createNumberString and converts it to a number.
@@ -57,6 +59,9 @@ function createNumberString(e) {
 // Resets currentNumber to blank so createNumberScreen can continue collecting a second number.
 function createNumber(e) {
     currentOperation = e.target.value
+    if(currentNumber === "") {
+        return;
+    }
     if(firstNumber === "") {
         firstNumber = parseInt(currentNumber);
     }
@@ -69,19 +74,29 @@ function createNumber(e) {
 
 // Operation
 
-function operate(firstNumber, secondNumber, currentOperation) {
+function operate(first, second, currentOperation) {
     if(currentOperation === "+") {
-        console.log(add(firstNumber, secondNumber));
+        newAnswer = add(first, second);
+        displayAnswer(newAnswer)
     }
     else if(currentOperation === "-") {
-        console.log(subtract(firstNumber, secondNumber));
+        newAnswer = subtract(first, second);
+        displayAnswer(newAnswer);
     }
     else if(currentOperation === "*") {
-        console.log(multiply(firstNumber, secondNumber));
+        newAnswer = multiply(first, second);
+        displayAnswer(newAnswer);
     }
     else { 
-        console.log(divide(firstNumber, secondNumber));
+        newAnswer = divide(first, second);
+        displayAnswer(newAnswer);
     }
+    console.log(firstNumber);
+    console.log(secondNumber);
+    firstNumber = newAnswer;
+    secondNumber = "";
+    console.log(firstNumber);
+    console.log(secondNumber);
 }
 
 
@@ -90,22 +105,18 @@ function operate(firstNumber, secondNumber, currentOperation) {
 // currentOperation Functions
 
 function add(num1, num2) {
-    console.log(num1 + num2);
     return num1 + num2;
 }
 
 function subtract(num1, num2) {
-    console.log(num1 - num2);
     return num1 - num2;
 }
 
 function multiply(num1, num2) {
-    console.log(num1 * num2);
     return num1 * num2;
 }
 
 function divide(num1, num2) {
-    console.log(num1 / num2);
     return num1 / num2;
 }
 
@@ -117,8 +128,13 @@ function clear() {
     secondNumber = "";
     answer = "";
     currentOperation = "";
+    displayCurrentNumber("");
 }
 
-function updateAnswer(answer) {
+function displayCurrentNumber(number) {
+    answerText.innerHTML = number;
+}
+
+function displayAnswer(answer) {
     answerText.innerHTML = answer;
 }
