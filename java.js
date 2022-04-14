@@ -25,6 +25,7 @@ btnMultiply.onclick = (e) => createNumber(e);
 btnEqual.onclick = (e) => {
     secondNumber = parseInt(currentNumber); 
     operate(firstNumber, secondNumber, currentOperation);
+    currentNumber = "";
 }
 btnOne.onclick = (e) => createNumberString(e);
 btnTwo.onclick = (e) => createNumberString(e);
@@ -58,6 +59,7 @@ function createNumberString(e) {
 // Assigns the new number to either first or second number depending on if firstNumber is blank or not.
 // Resets currentNumber to blank so createNumberScreen can continue collecting a second number.
 function createNumber(e) {
+    displayCurrentNumber("");
     currentOperation = e.target.value
     if(currentNumber === "") {
         return;
