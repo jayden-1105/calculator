@@ -22,7 +22,10 @@ btnAdd.onclick = (e) => createNumber(e);
 btnSubtract.onclick = (e) => createNumber(e);
 btnDivide.onclick = (e) => createNumber(e);
 btnMultiply.onclick = (e) => createNumber(e);
-btnEqual.onclick = (e) => createNumberString(e);
+btnEqual.onclick = (e) => {
+    secondNumber = parseInt(currentNumber); 
+    operate(firstNumber, secondNumber, currentOperation);
+}
 btnOne.onclick = (e) => createNumberString(e);
 btnTwo.onclick = (e) => createNumberString(e);
 btnThree.onclick = (e) => createNumberString(e);
@@ -34,7 +37,7 @@ btnEight.onclick = (e) => createNumberString(e);
 btnNine.onclick = (e) => createNumberString(e);
 btnDecimal.onclick = (e) => createNumberString(e);
 btnZero.onclick = (e) => createNumberString(e);
-btnClr.onclick = (e) => console.log('clr');
+btnClr.onclick = (e) => clear();
 
 
 let currentNumber = "";
@@ -47,48 +50,44 @@ let currentOperation = "";
 // Takes input from buttons pressed and concats a string together to make a numbe.
 function createNumberString(e) {
     currentNumber = currentNumber.concat(e.target.value);
-    console.log(currentNumber);
-
 }
 
 // Takes the string created in createNumberString and converts it to a number.
 // Assigns the new number to either first or second number depending on if firstNumber is blank or not.
 // Resets currentNumber to blank so createNumberScreen can continue collecting a second number.
 function createNumber(e) {
+    currentOperation = e.target.value
     if(firstNumber === "") {
         firstNumber = parseInt(currentNumber);
-        console.log(`first number ${firstNumber}`);
     }
     else {
-        secondNumber = parseInt(currentNumber);
-        console.log(`second number ${secondNumber}`);   
+        secondNumber = parseInt(currentNumber);  
+        operate(firstNumber, secondNumber, currentOperation);
     }
     currentNumber = "";
 }
 
-// function getOperation(e) {
-//     let operator = e.target.value
-//     console.log(operator);
-//     if(operator="+") {
-//         return add();
-//     }
-//     else if(operator="-") {
-//         return subtract();
-//     }
-//     else if(operator="*") {
-//         return multiply();
-//     }
-//     else { 
-//         return divide();
-//     }
-// }
-function operate(num1, num2, operation) {
-    return operation(num1, num2);
+// Operation
+
+function operate(firstNumber, secondNumber, currentOperation) {
+    if(currentOperation === "+") {
+        console.log(add(firstNumber, secondNumber));
+    }
+    else if(currentOperation === "-") {
+        console.log(subtract(firstNumber, secondNumber));
+    }
+    else if(currentOperation === "*") {
+        console.log(multiply(firstNumber, secondNumber));
+    }
+    else { 
+        console.log(divide(firstNumber, secondNumber));
+    }
 }
 
 
 
-// Operator Functions
+
+// currentOperation Functions
 
 function add(num1, num2) {
     console.log(num1 + num2);
@@ -111,6 +110,14 @@ function divide(num1, num2) {
 }
 
 
+// Clear Function
+function clear() {
+    currentNumber = "";
+    firstNumber = "";
+    secondNumber = "";
+    answer = "";
+    currentOperation = "";
+}
 
 function updateAnswer(answer) {
     answerText.innerHTML = answer;
