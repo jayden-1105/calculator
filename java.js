@@ -18,6 +18,9 @@ const btnZero = document.querySelector('.zero');
 const btnClr = document.querySelector('.clear');
 const answerText = document.querySelector('.answer');
 
+
+// All button event Listeners - Could create some of these with a loop but not 
+// not sure if it's worth the time at thsi point. 
 btnAdd.onclick = (e) => createNumber(e);
 btnSubtract.onclick = (e) => createNumber(e);
 btnDivide.onclick = (e) => createNumber(e);
@@ -44,6 +47,7 @@ btnZero.onclick = (e) => createNumberString(e);
 btnClr.onclick = (e) => clear();
 
 
+// Default Variable Values
 currentNumber = "";
 firstNumber = "";
 secondNumber = "";
@@ -52,7 +56,7 @@ currentOperation = "";
 newAnswer = 0;
 
 
-// Takes input from buttons pressed and concats a string together to make a numbe.
+// Takes input from buttons pressed and concats a string together to make a number.
 function createNumberString(e) {
     currentNumber = currentNumber.concat(e.target.value);
     displayCurrentNumber(currentNumber);
@@ -63,17 +67,18 @@ function createNumberString(e) {
 // Resets currentNumber to blank so createNumberScreen can continue collecting a second number.
 function createNumber(e) {
     displayCurrentNumber("");
-    currentOperation = e.target.value
     if(currentNumber === "") {
         return;
     }
     if(firstNumber === "") {
         firstNumber = parseInt(currentNumber);
+        currentOperation = e.target.value
     }
     else {
         secondNumber = parseInt(currentNumber);  
         operate(firstNumber, secondNumber, currentOperation);
     }
+    currentOperation = e.target.value
     currentNumber = "";
 }
 
