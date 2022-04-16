@@ -68,6 +68,9 @@ function createNumberString(e) {
     if(currentOperation === "equal") {
         clear();
     }
+    if(currentNumber.length > 9) {
+        return;
+    }
     currentNumber = currentNumber.concat(e.target.value);
     displayCurrentNumber(currentNumber);
 }

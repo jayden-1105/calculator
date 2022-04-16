@@ -5,9 +5,6 @@ body {
     background-color: rgb(75,150,125);
 }
 
-.header {
-
-}
 .title {
     font-family: 'Bebas Neue', cursive;
     font-size: 70px;
@@ -18,6 +15,7 @@ body {
 
 
 .mainContainer {
+    box-shadow: -10px -10px 8px #dbdbdb, 10px 10px 8px #dbdbdb;
     width: 60vw;
     height: 80vh;
     border: 3px solid gray;
@@ -26,6 +24,7 @@ body {
     flex-flow: column wrap;
     align-items: center;
     background-color: darkgray;
+
 }
 
 /* Answer Output Section of Calculator */
@@ -64,7 +63,7 @@ body {
     height: 20%;
 }
 .operator {
-    border: 3px solid gray;
+    border: 2px solid gray;
     border-radius: 5px;
     width: 15%;
     font-size: 2vw;
@@ -85,8 +84,14 @@ body {
 
 .number {
     width: 80%;
-    border: 3px solid gray;
+    border: 2px solid gray;
     border-radius: 5px;
     font-size: 2vw;
     font-weight: bolder;
+}
+
+.number:hover, .operator:hover {
+    border: 2px solid black;
+    background-color: gray;
+    color: blue;
 }
