@@ -29,7 +29,7 @@ btnEqual.onclick = (e) => {
     if(firstNumber === "" || currentNumber === "") {
         return;
     };
-    secondNumber = parseInt(currentNumber);
+    secondNumber = parseFloat(currentNumber);
     operate(firstNumber, secondNumber, currentOperation);
     currentNumber = "";
 };
@@ -72,11 +72,11 @@ function createNumber(e) {
         return;
     }
     if(firstNumber === "") {
-        firstNumber = parseInt(currentNumber);
+        firstNumber = parseFloat(currentNumber);
         currentOperation = e.target.value
     }
     else {
-        secondNumber = parseInt(currentNumber);  
+        secondNumber = parseFloat(currentNumber);  
         operate(firstNumber, secondNumber, currentOperation);
     }
     currentOperation = e.target.value
