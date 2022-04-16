@@ -32,6 +32,7 @@ btnEqual.onclick = (e) => {
     secondNumber = parseFloat(currentNumber);
     operate(firstNumber, secondNumber, currentOperation);
     currentNumber = "";
+    currentOperation = "equal";
 };
 btnOne.onclick = (e) => createNumberString(e);
 btnTwo.onclick = (e) => createNumberString(e);
@@ -58,6 +59,9 @@ newAnswer = 0;
 
 // Takes input from buttons pressed and concats a string together to make a number.
 function createNumberString(e) {
+    if(currentOperation === "equal") {
+        clear();
+    }
     currentNumber = currentNumber.concat(e.target.value);
     displayCurrentNumber(currentNumber);
 }
