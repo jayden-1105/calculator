@@ -43,7 +43,12 @@ btnSix.onclick = (e) => createNumberString(e);
 btnSeven.onclick = (e) => createNumberString(e);
 btnEight.onclick = (e) => createNumberString(e);
 btnNine.onclick = (e) => createNumberString(e);
-btnDecimal.onclick = (e) => createNumberString(e);
+btnDecimal.onclick = (e) => {
+    checkForDecimal(currentNumber);
+    if(hasDecimal === false) {
+        createNumberString(e);
+    }
+}
 btnZero.onclick = (e) => createNumberString(e);
 btnClr.onclick = (e) => clear();
 
@@ -55,6 +60,7 @@ secondNumber = "";
 answer = "";
 currentOperation = "";
 newAnswer = 0;
+hasDecimal = false;
 
 
 // Takes input from buttons pressed and concats a string together to make a number.
@@ -108,6 +114,7 @@ function operate(first, second, currentOperation) {
     }
     firstNumber = newAnswer;
     secondNumber = "";
+    hasDecimal = false;
 }
 
 
@@ -139,6 +146,7 @@ function clear() {
     secondNumber = "";
     answer = "";
     currentOperation = "";
+    hasDecimal = false;
     displayCurrentNumber("");
 }
 
@@ -148,4 +156,12 @@ function displayCurrentNumber(number) {
 
 function displayAnswer(answer) {
     answerText.innerHTML = answer;
+}
+
+function checkForDecimal(currentNumber){
+    for(i = 0; i < currentNumber.length; i++) {
+        if(currentNumber.charAt(i) === '.') {
+            hasDecimal = true; 
+        }
+    }
 }
