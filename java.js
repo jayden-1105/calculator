@@ -68,6 +68,7 @@ function createNumberString(e) {
 function createNumber(e) {
     displayCurrentNumber("");
     if(currentNumber === "") {
+        currentOperation = e.target.value
         return;
     }
     if(firstNumber === "") {
