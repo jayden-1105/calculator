@@ -23,10 +23,13 @@ btnSubtract.onclick = (e) => createNumber(e);
 btnDivide.onclick = (e) => createNumber(e);
 btnMultiply.onclick = (e) => createNumber(e);
 btnEqual.onclick = (e) => {
-    secondNumber = parseInt(currentNumber); 
+    if(firstNumber === "" || currentNumber === "") {
+        return;
+    };
+    secondNumber = parseInt(currentNumber);
     operate(firstNumber, secondNumber, currentOperation);
     currentNumber = "";
-}
+};
 btnOne.onclick = (e) => createNumberString(e);
 btnTwo.onclick = (e) => createNumberString(e);
 btnThree.onclick = (e) => createNumberString(e);
@@ -93,12 +96,8 @@ function operate(first, second, currentOperation) {
         newAnswer = divide(first, second);
         displayAnswer(newAnswer);
     }
-    console.log(firstNumber);
-    console.log(secondNumber);
     firstNumber = newAnswer;
     secondNumber = "";
-    console.log(firstNumber);
-    console.log(secondNumber);
 }
 
 
