@@ -112,19 +112,19 @@ function operate(first, second, currentOperation) {
 // currentOperation Functions
 
 function add(num1, num2) {
-    return num1 + num2;
+    return Math.round((num1 + num2) * 10000) / 10000;
 }
 
 function subtract(num1, num2) {
-    return num1 - num2;
+    return Math.round((num1 - num2) * 10000) / 10000;
 }
 
 function multiply(num1, num2) {
-    return num1 * num2;
+    return Math.round((num1 * num2) * 10000) / 10000;
 }
 
 function divide(num1, num2) {
-    return num1 / num2;
+    return Math.round((num1 / num2) * 10000) / 10000;
 }
 
 
