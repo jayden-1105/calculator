@@ -44,10 +44,10 @@ btnSeven.onclick = (e) => createNumberString(e);
 btnEight.onclick = (e) => createNumberString(e);
 btnNine.onclick = (e) => createNumberString(e);
 btnDecimal.onclick = (e) => {
-    checkForDecimal(currentNumber);
     if(hasDecimal === false) {
         createNumberString(e);
     }
+    hasDecimal = true;
 }
 btnZero.onclick = (e) => createNumberString(e);
 btnClr.onclick = (e) => clear();
@@ -156,12 +156,4 @@ function displayCurrentNumber(number) {
 
 function displayAnswer(answer) {
     answerText.innerHTML = answer;
-}
-
-function checkForDecimal(currentNumber){
-    for(i = 0; i < currentNumber.length; i++) {
-        if(currentNumber.charAt(i) === '.') {
-            hasDecimal = true; 
-        }
-    }
 }
