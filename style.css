@@ -9,13 +9,14 @@ body {
     font-family: 'Bebas Neue', cursive;
     font-size: 70px;
     margin: 10px;
+    text-shadow: 3px 3px 3px red;
 }
 
 /* Calculator Container */
 
 
 .mainContainer {
-    box-shadow: -10px -10px 8px #dbdbdb, 10px 10px 8px #dbdbdb;
+    box-shadow: -12px -12px 8px #c9c8c8, 12px 12px 8px #c9c8c8;
     width: 60vw;
     height: 80vh;
     border: 3px solid gray;
