@@ -96,3 +96,8 @@ body {
     background-color: gray;
     color: blue;
 }
+
+.number:active, .operator:active {
+    background-color:black;
+    color: white;
+}
