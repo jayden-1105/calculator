@@ -17,7 +17,7 @@ body {
 
 .mainContainer {
     box-shadow: -12px -12px 8px #c9c8c8, 12px 12px 8px #c9c8c8;
-    width: 60vw;
+    width: clamp(300px, 60vw, 800px);
     height: 80vh;
     border: 3px solid gray;
     border-radius: 10px;
@@ -52,7 +52,7 @@ body {
 }
 
 .answer {
-    font-size: 3.5vw;
+    font-size: min(5vw, 40px);
 }
 /* Operations Section of Calculator */
 
@@ -67,7 +67,7 @@ body {
     border: 2px solid gray;
     border-radius: 5px;
     width: 15%;
-    font-size: 2vw;
+    font-size: clamp(20px, 2vw, 40px);
     font-weight: bolder;
 }
 
@@ -87,7 +87,7 @@ body {
     width: 80%;
     border: 2px solid gray;
     border-radius: 5px;
-    font-size: 2vw;
+    font-size: clamp(20px, 2vw, 40px);
     font-weight: bolder;
 }
 
